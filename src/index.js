@@ -1,5 +1,5 @@
 // index.js
-
+const ramensUrl = "http://localhost:3000/ramens/"
 
 // Callbacks
 const handleClick = (ramen) => {
@@ -12,7 +12,15 @@ const addSubmitListener = () => {
 
 const displayRamens = () => {
   console.log("displayRamens")
-};
+  fetch(ramensUrl)
+    .then(response => response.json())
+    .then((ramen) => ramen.forEach(loadRamen))
+    .catch((error) => console.log(error))
+  
+  function loadRamen () {
+    console.log("loadRamen")
+  }
+}
 
 const main = () => {
   document.addEventListener ('DOMContentLoaded', () => {
@@ -29,5 +37,5 @@ export {
   addSubmitListener,
   handleClick,
   main,
-};
+}
 
