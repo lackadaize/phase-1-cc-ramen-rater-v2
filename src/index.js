@@ -1,10 +1,11 @@
 // index.js
 const ramensUrl = "http://localhost:3000/ramens/"
 
+
 // Callbacks
 const handleClick = (ramen) => {
-  // Add code
-};
+  console.log(ramen.id)
+}
 
 const addSubmitListener = () => {
   console.log("addSubmitListener")
@@ -13,20 +14,22 @@ const addSubmitListener = () => {
 const displayRamens = () => {
   fetch(ramensUrl)
     .then(response => response.json())
-    .then((ramen) => ramen.forEach(loadRamen))
+    .then((ramen) => ramen.forEach(loadRamenImages))
     .catch((error) => console.log(error))
-  
-  function loadRamen (ramen) {
+
+  function loadRamenImages (ramen) {
     const ramenMenu = document.getElementById('ramen-menu')
     const ramenImg = document.createElement('img')
-    ramenImg.setAttribute('class', 'ramen-card')
     ramenImg.src = ramen.image
+    ramenImg.alt = ramen.name
+    ramenImg.id = ramen.id
     ramenMenu.appendChild(ramenImg)
+    ramenImg.addEventListener('click', () => handleClick(ramen))
   }
 }
 
 const main = () => {
-  document.addEventListener ('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
     displayRamens()
     addSubmitListener()
   })
@@ -41,4 +44,3 @@ export {
   handleClick,
   main,
 }
-
