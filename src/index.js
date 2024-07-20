@@ -1,21 +1,24 @@
 // index.js
 
+
 // Callbacks
 const handleClick = (ramen) => {
   // Add code
 };
 
 const addSubmitListener = () => {
-  // Add code
+  console.log("addSubmitListener")
 }
 
 const displayRamens = () => {
-  // Add code
+  console.log("displayRamens")
 };
 
 const main = () => {
-  // Invoke displayRamens here
-  // Invoke addSubmitListener here
+  document.addEventListener ('DOMContentLoaded', () => {
+    displayRamens()
+    addSubmitListener()
+  })
 }
 
 main()
@@ -27,3 +30,4 @@ export {
   handleClick,
   main,
 };
+
