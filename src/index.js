@@ -4,7 +4,8 @@ const ramensUrl = "http://localhost:3000/ramens/"
 
 // Callbacks
 const handleClick = (ramen) => {
-  console.log(ramen.id)
+  let ramenSelected = ramen.id
+  console.log(ramenSelected)
 }
 
 const addSubmitListener = () => {
