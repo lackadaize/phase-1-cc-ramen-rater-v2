@@ -11,14 +11,17 @@ const addSubmitListener = () => {
 }
 
 const displayRamens = () => {
-  console.log("displayRamens")
   fetch(ramensUrl)
     .then(response => response.json())
     .then((ramen) => ramen.forEach(loadRamen))
     .catch((error) => console.log(error))
   
-  function loadRamen () {
-    console.log("loadRamen")
+  function loadRamen (ramen) {
+    const ramenMenu = document.getElementById('ramen-menu')
+    const ramenCard = document.createElement('div')
+    ramenCard.setAttribute('class', 'ramen-card')
+    ramenCard.innerHTML = `<a href="#"><img src="${ramen.image}" /></a>`
+    ramenMenu.appendChild(ramenCard)
   }
 }
 
