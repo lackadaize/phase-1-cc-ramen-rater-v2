@@ -18,10 +18,10 @@ const displayRamens = () => {
   
   function loadRamen (ramen) {
     const ramenMenu = document.getElementById('ramen-menu')
-    const ramenCard = document.createElement('div')
-    ramenCard.setAttribute('class', 'ramen-card')
-    ramenCard.innerHTML = `<a href="#"><img src="${ramen.image}" /></a>`
-    ramenMenu.appendChild(ramenCard)
+    const ramenImg = document.createElement('img')
+    ramenImg.setAttribute('class', 'ramen-card')
+    ramenImg.src = ramen.image
+    ramenMenu.appendChild(ramenImg)
   }
 }
 
