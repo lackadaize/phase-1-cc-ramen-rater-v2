@@ -2,21 +2,22 @@
 const ramensUrl = "http://localhost:3000/ramens/"
 const ramenMenu = document.getElementById('ramen-menu')
 
-// Initial load of ramen objects into 'ramen-menu'
+// Initial fetch of ramen objects into 'ramen-menu'
 const displayRamens = () => {
   fetch(ramensUrl)
     .then(response => response.json())
     .then((ramen) => ramen.forEach(loadRamenImages))
     .catch((error) => console.log(error))
+}
 
-  function loadRamenImages (ramen) {
-    const ramenImg = document.createElement('img')
-    ramenImg.src = ramen.image
-    ramenImg.alt = ramen.name
-    ramenImg.id = ramen.id
-    ramenMenu.appendChild(ramenImg)
-    ramenImg.addEventListener('click', () => handleClick(ramen))
-  }
+// Load images for both displayRamens and loadNewRamen()
+function loadRamenImages (ramen) {
+  const ramenImg = document.createElement('img')
+  ramenImg.src = ramen.image
+  ramenImg.alt = ramen.name
+  ramenImg.id = ramen.id
+  ramenMenu.appendChild(ramenImg)
+  ramenImg.addEventListener('click', () => handleClick(ramen))
 }
 
 // Click 'ramen-menu' images to show ramen object data in 'ramen-detail' 
@@ -37,7 +38,7 @@ const handleClick = (ramen) => {
 const addSubmitListener = () => {
   const newRamenform = document.getElementById('new-ramen')
   
-  const handleFormSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
     let newName = document.getElementById('new-name').value
     let newRestaurant = document.getElementById('new-restaurant').value
@@ -56,8 +57,7 @@ const addSubmitListener = () => {
       body: JSON.stringify(newRamen)
     })
       .then(response => response.json())
-      .then((ramen) => {
-      })
+      .then((ramen) => ramen.forEach(loadRamenImages))
       .catch((error) => console.log(error))
 
     function loadNewRamen () {
@@ -71,7 +71,7 @@ const addSubmitListener = () => {
     return newRamen
     }
   }
-  newRamenform.addEventListener('submit', handleFormSubmit)
+  newRamenform.addEventListener('submit', handleSubmit)
 }
 
 // Invokes main functions once DOM has loaded
