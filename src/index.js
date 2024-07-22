@@ -57,9 +57,8 @@ const addSubmitListener = () => {
     })
       .then(response => response.json())
       .then((ramen) => {
-        // console.log(ramen);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error))
 
     function loadNewRamen () {
       const newRamen = {
