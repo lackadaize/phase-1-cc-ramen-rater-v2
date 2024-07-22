@@ -44,7 +44,7 @@
       "name": "Jonathan Kulak",
       "restaurant": "Restaurant",
       "image": "./assets/ramen/naruto.jpg",
-      "rating": "3",
+      "rating": "5",
       "comment": "This is a comment.",
       "id": 6
     }

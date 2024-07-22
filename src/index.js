@@ -57,7 +57,7 @@ const addSubmitListener = () => {
       body: JSON.stringify(newRamen)
     })
       .then(response => response.json())
-      .then((ramen) => ramen.forEach(loadRamenImages))
+      .then((ramen) => ramen.forEach(loadRamenImages)) //Currently throws an error on form submit but still POSTs to db.json
       .catch((error) => console.log(error))
 
     function loadNewRamen () {
