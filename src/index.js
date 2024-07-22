@@ -33,15 +33,46 @@ const handleClick = (ramen) => {
   detailsComment.textContent = ramen.comment
 }
 
-// 'new-ramen' form submit creates new ramen object and appends it to 'ramen-menu'
+// // 'new-ramen' form submit creates new ramen object and appends it to 'ramen-menu'
 const addSubmitListener = () => {
-  console.log("addSubmitListener")
   const newRamenform = document.getElementById('new-ramen')
-  let newName = document.getElementById('new-name').value
-  let newRestaurant = document.getElementById('new-restaurant').value
-  let newImage = document.getElementById('new-image').value
-  let newRating = document.getElementById('new-rating').value
-  let newComment = document.getElementById('new-comment').value
+  
+  const handleFormSubmit = (event) => {
+    event.preventDefault()
+    let newName = document.getElementById('new-name').value
+    let newRestaurant = document.getElementById('new-restaurant').value
+    let newImage = document.getElementById('new-image').value
+    let newRating = document.getElementById('new-rating').value
+    let newComment = document.getElementById('new-comment').value
+
+    const newRamen = loadNewRamen()
+
+    fetch(ramensUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(newRamen)
+    })
+      .then(response => response.json())
+      .then((ramen) => {
+        // console.log(ramen);
+      })
+      .catch((error) => console.log(error));
+
+    function loadNewRamen () {
+      const newRamen = {
+        name: newName,
+        restaurant: newRestaurant,
+        image: newImage,
+        rating: newRating,
+        comment: newComment
+      }
+    return newRamen
+    }
+  }
+  newRamenform.addEventListener('submit', handleFormSubmit)
 }
 
 // Invokes main functions once DOM has loaded
