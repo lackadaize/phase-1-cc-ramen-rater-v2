@@ -4,6 +4,7 @@ const ramenMenu = document.getElementById('ramen-menu')
 
 // Initial fetch of ramen objects into 'ramen-menu'
 const displayRamens = () => {
+  ramenMenu.textContent = ''
   fetch(ramensUrl)
     .then(response => response.json())
     .then((ramen) => ramen.forEach(loadRamenImages))
@@ -46,7 +47,13 @@ const addSubmitListener = () => {
     let newRating = document.getElementById('new-rating').value
     let newComment = document.getElementById('new-comment').value
 
-    const newRamen = loadNewRamen()
+    const newRamen = {
+        name: newName,
+        restaurant: newRestaurant,
+        image: newImage,
+        rating: newRating,
+        comment: newComment
+      }
 
     fetch(ramensUrl, {
       method: "POST",
@@ -57,20 +64,16 @@ const addSubmitListener = () => {
       body: JSON.stringify(newRamen)
     })
       .then(response => response.json())
-      .then((ramen) => ramen.forEach(loadRamenImages)) //Currently throws an error on form submit but still POSTs to db.json
+      .then((ramen) => {
+        loadRamenImages(ramen)
+        newRamenform.reset()
+      })
       .catch((error) => console.log(error))
 
-    function loadNewRamen () {
-      const newRamen = {
-        name: newName,
-        restaurant: newRestaurant,
-        image: newImage,
-        rating: newRating,
-        comment: newComment
-      }
     return newRamen
-    }
+    
   }
+  newRamenform.reset()
   newRamenform.addEventListener('submit', handleSubmit)
 }
 
