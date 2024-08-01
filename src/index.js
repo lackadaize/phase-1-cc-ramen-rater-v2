@@ -1,13 +1,16 @@
 // Global variables
 const ramensUrl = "http://localhost:3000/ramens/"
 const ramenMenu = document.getElementById('ramen-menu')
+// let ramenSelected
 
 // Initial fetch of ramen objects into 'ramen-menu'
 const displayRamens = () => {
-  ramenMenu.textContent = ''
   fetch(ramensUrl)
     .then(response => response.json())
-    .then((ramen) => ramen.forEach(loadRamenImages))
+    .then((ramen) => {
+      ramenMenu.textContent = ''
+      ramen.forEach(loadRamenImages)
+    })
     .catch((error) => console.log(error))
 }
 
@@ -38,9 +41,9 @@ const handleClick = (ramen) => {
 // // 'new-ramen' form submit creates new ramen object and appends it to 'ramen-menu'
 const addSubmitListener = () => {
   const newRamenform = document.getElementById('new-ramen')
-  
   const handleSubmit = (event) => {
     event.preventDefault()
+
     let newName = document.getElementById('new-name').value
     let newRestaurant = document.getElementById('new-restaurant').value
     let newImage = document.getElementById('new-image').value
@@ -69,12 +72,9 @@ const addSubmitListener = () => {
         newRamenform.reset()
       })
       .catch((error) => console.log(error))
-
-    return newRamen
-    
+    return newRamen  
   }
-  newRamenform.reset()
-  newRamenform.addEventListener('submit', handleSubmit)
+    newRamenform.addEventListener('submit', handleSubmit)
 }
 
 // Invokes main functions once DOM has loaded
