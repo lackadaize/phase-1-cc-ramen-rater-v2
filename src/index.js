@@ -40,7 +40,7 @@ const handleClick = (ramen) => {
 
 // // 'new-ramen' form submit creates new ramen object and appends it to 'ramen-menu'
 const addSubmitListener = () => {
-  const newRamenform = document.getElementById('new-ramen')
+  const newRamenForm = document.getElementById('new-ramen')
   const handleSubmit = (event) => {
     event.preventDefault()
 
@@ -69,12 +69,12 @@ const addSubmitListener = () => {
       .then(response => response.json())
       .then((ramen) => {
         loadRamenImages(ramen)
-        newRamenform.reset()
       })
       .catch((error) => console.log(error))
+    newRamenForm.reset()
     return newRamen  
   }
-    newRamenform.addEventListener('submit', handleSubmit)
+    newRamenForm.addEventListener('submit', handleSubmit)
 }
 
 // Invokes main functions once DOM has loaded
