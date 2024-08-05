@@ -1,6 +1,5 @@
 // Global variables
 const ramensUrl = "http://localhost:3000/ramens/"
-const ramenMenuDiv = document.getElementById('ramen-menu')
 // let ramenSelected
 
 // Initial fetch of ramen objects into 'ramen-menu'
@@ -8,7 +7,6 @@ const displayRamens = () => {
   fetch(ramensUrl)
     .then(response => response.json())
     .then((ramen) => {
-      ramenMenuDiv.textContent = ''
       ramen.forEach(loadRamenImages)
     })
     .catch((error) => console.log(error))
@@ -16,6 +14,7 @@ const displayRamens = () => {
 
 // Load images for both displayRamens and loadNewRamen()
 function loadRamenImages (ramen) {
+  const ramenMenuDiv = document.getElementById('ramen-menu')
   const ramenImg = document.createElement('img')
   ramenImg.src = ramen.image
   ramenImg.alt = ramen.name
