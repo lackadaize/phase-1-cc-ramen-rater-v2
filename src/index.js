@@ -1,6 +1,6 @@
 // Global variables
 const ramensUrl = "http://localhost:3000/ramens/"
-let ramenSelected
+let ramenSelected = 1
 
 // Initial fetch of ramen objects into 'ramen-menu'
 const displayRamens = () => {
@@ -13,7 +13,7 @@ const displayRamens = () => {
 }
 
 // Load images for both displayRamens and loadNewRamen()
-function loadRamenImages (ramen) {
+const loadRamenImages = (ramen) => {
   const ramenMenuDiv = document.getElementById('ramen-menu')
   const ramenImg = document.createElement('img')
   ramenImg.src = ramen.image
@@ -35,11 +35,12 @@ const handleClick = (ramen) => {
   detailsRestaurant.textContent = ramen.restaurant
   detailsRating.textContent= ramen.rating
   detailsComment.textContent = ramen.comment
+
   ramenSelected = ramen.id
   console.log(ramenSelected)
 }
 
-// // 'new-ramen' form submit creates new ramen object and appends it to 'ramen-menu'
+// 'new-ramen' form submit creates new ramen object and appends it to 'ramen-menu'
 const addSubmitListener = () => {
   const newRamenForm = document.getElementById('new-ramen')
   const handleSubmit = (event) => {
