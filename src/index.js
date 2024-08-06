@@ -40,8 +40,10 @@ const handleClick = (ramen) => {
   console.log(ramenSelected)
 }
 
-// 'new-ramen' form submit creates new ramen object and appends it to 'ramen-menu'
+// handleSubmit(), handleDelete(), and handlePatch()
 const addSubmitListener = () => {
+  
+  // 'new-ramen' form submit creates new ramen object and appends it to 'ramen-menu'
   const newRamenForm = document.getElementById('new-ramen')
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -71,6 +73,13 @@ const addSubmitListener = () => {
     return newRamen  
   }
   newRamenForm.addEventListener('submit', handleSubmit)
+
+  // Delete 'ramenSelected'
+  const deleteRamen = document.getElementById('delete-ramen')
+  const handleDelete = () => {
+    console.log("Delete Ramen " + ramenSelected)   
+  }
+  deleteRamen.addEventListener('click', handleDelete)  
 }
 
 // Invokes main functions once DOM has loaded
