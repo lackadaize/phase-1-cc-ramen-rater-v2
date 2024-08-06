@@ -43,18 +43,18 @@ const addSubmitListener = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    let newName = document.getElementById('new-name').value
-    let newRestaurant = document.getElementById('new-restaurant').value
-    let newImage = document.getElementById('new-image').value
-    let newRating = document.getElementById('new-rating').value
-    let newComment = document.getElementById('new-comment').value
+    // let newName = document.getElementById('new-name').value
+    // let newRestaurant = document.getElementById('new-restaurant').value
+    // let newImage = document.getElementById('new-image').value
+    // let newRating = document.getElementById('new-rating').value
+    // let newComment = document.getElementById('new-comment').value
 
     const newRamen = {
-        name: newName,
-        restaurant: newRestaurant,
-        image: newImage,
-        rating: newRating,
-        comment: newComment
+        name: document.getElementById('new-name').value,
+        restaurant: document.getElementById('new-restaurant').value,
+        image: document.getElementById('new-image').value,
+        rating: document.getElementById('new-rating').value,
+        comment: document.getElementById('new-comment').value
       }
 
     fetch(ramensUrl, {
