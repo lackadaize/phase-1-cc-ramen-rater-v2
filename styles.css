@@ -78,6 +78,27 @@ header h3 {
   border: 1px solid #fff;
 }
 
+#delete-ramen {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 0.5rem 1rem;
+  background-color:#000;
+  border: #000;
+  color: rgb(255, 87, 87);
+
+  font-weight:bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1rem;
+  text-align: center;
+}
+
+#delete-ramen:hover {
+  color: #000;
+  background-color: rgb(255, 87, 87);
+}
+
 #ramen-detail-additional {
   background-color: #fff;
   padding: 25px;
