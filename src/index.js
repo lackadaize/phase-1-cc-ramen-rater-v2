@@ -74,12 +74,36 @@ const addSubmitListener = () => {
   }
   newRamenForm.addEventListener('submit', handleSubmit)
 
+  // fetch url for deleteRamen and patchRamen
+  let ramenSelectedUrl = ramensUrl + ramenSelected
+
   // Delete 'ramenSelected'
   const deleteRamen = document.getElementById('delete-ramen')
   const handleDelete = () => {
     console.log("Delete Ramen " + ramenSelected)   
+    
+    fetch(ramenSelectedUrl, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      }
+    })
+      .then(response => response.json())
+      .then((ramen) => {
+        loadRamenImages(ramen)
+      })
+      .catch((error) => console.log(error)) 
   }
   deleteRamen.addEventListener('click', handleDelete)  
+
+  // Patch ramenSelected
+  const patchRamenForm = document.getElementById('edit-ramen')
+  const handlePatch = (event) => {
+    event.preventDefault()
+    console.log("edit-ramen")
+  }
+  patchRamenForm.addEventListener('submit', handlePatch) 
 }
 
 // Invokes main functions once DOM has loaded
