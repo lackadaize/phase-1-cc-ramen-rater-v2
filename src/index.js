@@ -92,6 +92,7 @@ const addSubmitListener = () => {
       .then(response => response.json())
       .then((ramen) => {
         loadRamenImages(ramen)
+        console.log("Ramen " + ramenSelected + " was deleted")
       })
       .catch((error) => console.log(error)) 
   }
