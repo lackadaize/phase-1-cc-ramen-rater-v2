@@ -43,8 +43,8 @@
     {
       "name": "Name",
       "restaurant": "Restaurant",
-      "image": "./assets/ramen/naruto.jpg",
-      "rating": "3",
+      "image": "./assets/ramen/nirvana.jpg",
+      "rating": "4",
       "comment": "Comment",
       "id": 6
     }

@@ -73,18 +73,15 @@ const addSubmitListener = () => {
     newRamenForm.reset()
     return newRamen  
   }
-    newRamenForm.addEventListener('submit', handleSubmit)
+  newRamenForm.addEventListener('submit', handleSubmit)
 }
 
 // Invokes main functions once DOM has loaded
 const main = () => {
-  document.addEventListener('DOMContentLoaded', () => {
-    displayRamens()
-    addSubmitListener()
-  })
+  displayRamens()
+  addSubmitListener()
 }
-
-main()
+document.addEventListener('DOMContentLoaded', main)
 
 // Export functions for testing
 export {
