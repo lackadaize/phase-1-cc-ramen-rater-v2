@@ -112,14 +112,14 @@ const addSubmitListener = () => {
       },
       body: JSON.stringify(patchRamen)
     })
-    .then(response => {
-      console.log(response)
-      return response.json()
-    })
+      .then(response => response.json())
       .then(() => {
         console.log("Ramen " + ramenSelected + " was patched")
+        loadRamenImages(ramen)
       })
       .catch((error) => console.log(error))
+    document.getElementById('rating-display').textContent = document.getElementById('patch-rating').value
+    document.getElementById('comment-display').textContent = document.getElementById('patch-comment').value
     patchRamenForm.reset()
   }
   patchRamenForm.addEventListener('submit', handlePatch) 

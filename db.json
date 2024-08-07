@@ -41,27 +41,19 @@
       "comment": "Perfect for a cold night."
     },
     {
-      "id": 6,
-      "name": "Kojiro Red Ramen",
-      "restaurant": "Ramen-Ya",
-      "image": "./assets/ramen/kojiro.jpg",
-      "rating": "",
-      "comment": ""
-    },
-    {
       "name": "Name",
       "restaurant": "Restaurant",
       "image": "./assets/ramen/naruto.jpg",
-      "rating": "4",
-      "comment": "test t",
+      "rating": "6",
+      "comment": "ttttt",
       "id": 7
     },
     {
       "name": "Name",
       "restaurant": "Restaurant",
       "image": "./assets/ramen/naruto.jpg",
-      "rating": "5",
-      "comment": "test",
+      "rating": "1",
+      "comment": "PATCH Comment",
       "id": 8
     }
   ]
