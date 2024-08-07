@@ -115,7 +115,6 @@ const addSubmitListener = () => {
       .then(response => response.json())
       .then(() => {
         console.log("Ramen " + ramenSelected + " was patched")
-        loadRamenImages(ramen)
       })
       .catch((error) => console.log(error))
     document.getElementById('rating-display').textContent = document.getElementById('patch-rating').value
