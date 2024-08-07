@@ -1,6 +1,6 @@
 // Global variables
 const ramensUrl = "http://localhost:3000/ramens/"
-let ramenSelected = 1
+let ramenSelected
 
 // Initial fetch of ramen objects into 'ramen-menu'
 const displayRamens = () => {
@@ -37,7 +37,7 @@ const handleClick = (ramen) => {
   detailsComment.textContent = ramen.comment
 
   ramenSelected = ramen.id
-  console.log(ramenSelected)
+  console.log("Ramen " + ramenSelected + " was clicked")
 }
 
 // handleSubmit(), handleDelete(), and handlePatch()
@@ -70,19 +70,15 @@ const addSubmitListener = () => {
       })
       .catch((error) => console.log(error))
     newRamenForm.reset()
-    return newRamen  
+    // return newRamen  
   }
   newRamenForm.addEventListener('submit', handleSubmit)
-
-  // fetch url for deleteRamen and patchRamen
-  let ramenSelectedUrl = ramensUrl + ramenSelected
 
   // Delete 'ramenSelected'
   const deleteRamen = document.getElementById('delete-ramen')
   const handleDelete = () => {
-    console.log("Delete Ramen " + ramenSelected)   
-    
-    fetch(ramenSelectedUrl, {
+   
+    fetch(ramensUrl + ramenSelected, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -92,6 +88,7 @@ const addSubmitListener = () => {
       .then(response => response.json())
       .then((ramen) => {
         loadRamenImages(ramen)
+        ramenImg.id[ramenSelected].remove()
         console.log("Ramen " + ramenSelected + " was deleted")
       })
       .catch((error) => console.log(error)) 
