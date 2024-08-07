@@ -86,8 +86,8 @@ const addSubmitListener = () => {
     })
       .then(response => response.json())
       .then((ramen) => {
-        loadRamenImages(ramen)
-        ramenImg.id[ramenSelected].remove()
+        // loadRamenImages(ramen)
+        // ramenMenuDiv.removeChild('img.getElementById(ramenSelected)')
         console.log("Ramen " + ramenSelected + " was deleted")
       })
       .catch((error) => console.log(error)) 
@@ -98,7 +98,35 @@ const addSubmitListener = () => {
   const patchRamenForm = document.getElementById('edit-ramen')
   const handlePatch = (event) => {
     event.preventDefault()
-    console.log("edit-ramen")
+    const rating = document.getElementById('new-rating').value;
+    const comment = document.getElementById('new-comment').value;
+  
+    console.log('Rating:', rating);
+    console.log('Comment:', comment);
+    const patchRamen = {
+      rating: document.getElementById('new-rating').value,
+      comment: document.getElementById('new-comment').value
+    }
+
+    fetch(ramensUrl + ramenSelected, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(patchRamen)
+    })
+    .then(response => {
+      console.log(response)
+      return response.json()
+    })
+      .then((ramen) => {
+        console.log(ramen)
+        loadRamenImages(ramen)
+        console.log("Ramen " + ramenSelected + " was patched")
+      })
+      .catch((error) => console.log(error))
+    patchRamenForm.reset()
   }
   patchRamenForm.addEventListener('submit', handlePatch) 
 }

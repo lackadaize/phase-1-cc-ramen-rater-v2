@@ -41,36 +41,20 @@
       "comment": "Perfect for a cold night."
     },
     {
-      "name": "Name",
-      "restaurant": "Restaurant",
-      "image": "./assets/ramen/nirvana.jpg",
-      "rating": "5",
-      "comment": "Comment",
-      "id": 6
-    },
-    {
-      "name": "Name",
-      "restaurant": "Restaurant",
-      "image": "./assets/ramen/nirvana.jpg",
-      "rating": "5",
-      "comment": "Comment",
-      "id": 7
+      "id": 6,
+      "name": "Kojiro Red Ramen",
+      "restaurant": "Ramen-Ya",
+      "image": "./assets/ramen/kojiro.jpg",
+      "rating": 7,
+      "comment": "Perfect for a cold night."
     },
     {
       "name": "Name",
       "restaurant": "Restaurant",
       "image": "./assets/ramen/naruto.jpg",
-      "rating": "4",
-      "comment": "afs",
-      "id": 8
-    },
-    {
-      "name": "Name",
-      "restaurant": "Restaurant",
-      "image": "./assets/ramen/nirvana.jpg",
-      "rating": "3",
-      "comment": "adfasdff",
-      "id": 9
+      "rating": "",
+      "comment": "",
+      "id": 7
     }
   ]
 }
