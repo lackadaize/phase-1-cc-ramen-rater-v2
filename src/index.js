@@ -25,17 +25,11 @@ const loadRamenImages = (ramen) => {
 
 // Click 'ramen-menu' images to show ramen object data in 'ramen-detail' 
 const handleClick = (ramen) => {
-  let detailsImg = document.getElementById('detail-image')
-  let detailsName = document.getElementById('detail-name')
-  let detailsRestaurant = document.getElementById('detail-restaurant')
-  let detailsRating = document.getElementById('rating-display')
-  let detailsComment = document.getElementById('comment-display')
-  detailsImg.src = ramen.image
-  detailsName.textContent = ramen.name
-  detailsRestaurant.textContent = ramen.restaurant
-  detailsRating.textContent= ramen.rating
-  detailsComment.textContent = ramen.comment
-
+  document.getElementById('detail-image').src = ramen.image
+  document.getElementById('detail-name').textContent = ramen.name
+  document.getElementById('detail-restaurant').textContent = ramen.restaurant
+  document.getElementById('rating-display').textContent = ramen.rating
+  document.getElementById('comment-display').textContent = ramen.comment
   ramenSelected = ramen.id
   console.log("Ramen " + ramenSelected + " was clicked")
 }
