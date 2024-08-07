@@ -60,7 +60,7 @@ const addSubmitListener = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json"
+        "Accept": "application/json"
       },
       body: JSON.stringify(newRamen)
     })
@@ -81,7 +81,7 @@ const addSubmitListener = () => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json"
+        "Accept": "application/json"
       }
     })
       .then(response => response.json())
@@ -98,21 +98,17 @@ const addSubmitListener = () => {
   const patchRamenForm = document.getElementById('edit-ramen')
   const handlePatch = (event) => {
     event.preventDefault()
-    const rating = document.getElementById('new-rating').value;
-    const comment = document.getElementById('new-comment').value;
-  
-    console.log('Rating:', rating);
-    console.log('Comment:', comment);
+
     const patchRamen = {
-      rating: document.getElementById('new-rating').value,
-      comment: document.getElementById('new-comment').value
+      rating: document.getElementById('patch-rating').value,
+      comment: document.getElementById('patch-comment').value
     }
 
     fetch(ramensUrl + ramenSelected, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json"
+        "Accept": "application/json"
       },
       body: JSON.stringify(patchRamen)
     })
@@ -120,9 +116,7 @@ const addSubmitListener = () => {
       console.log(response)
       return response.json()
     })
-      .then((ramen) => {
-        console.log(ramen)
-        loadRamenImages(ramen)
+      .then(() => {
         console.log("Ramen " + ramenSelected + " was patched")
       })
       .catch((error) => console.log(error))
