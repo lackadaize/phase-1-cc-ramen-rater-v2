@@ -70,7 +70,6 @@ const addSubmitListener = () => {
       })
       .catch((error) => console.log(error))
     newRamenForm.reset()
-    // return newRamen  
   }
   newRamenForm.addEventListener('submit', handleSubmit)
 
