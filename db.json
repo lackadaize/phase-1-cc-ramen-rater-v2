@@ -51,18 +51,10 @@
     {
       "name": "Name",
       "restaurant": "Restaurant",
-      "image": "./assets/ramen/naruto.jpg",
-      "rating": "5",
+      "image": "./assets/ramen/nirvana.jpg",
+      "rating": "1",
       "comment": "PATCH Comment",
       "id": 8
-    },
-    {
-      "name": "Name",
-      "restaurant": "Restaurant",
-      "image": "./assets/ramen/naruto.jpg",
-      "rating": "5",
-      "comment": "POST Comment",
-      "id": 9
     }
   ]
 }

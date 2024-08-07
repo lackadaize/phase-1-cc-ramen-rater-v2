@@ -80,8 +80,8 @@ header h3 {
 
 #delete-ramen {
   position: fixed;
-  bottom: 0;
-  right: 0;
+  bottom: 10px;
+  right: 10px;
   padding: 0.5rem 1rem;
   background-color:#000;
   border: #000;
@@ -96,6 +96,7 @@ header h3 {
 #delete-ramen:hover {
   color: #000;
   background-color: rgb(255, 87, 87);
+  font-weight: bold;
 }
 
 #ramen-detail-additional {
@@ -146,6 +147,15 @@ input[type="submit"] {
   color: white;
   border: 1px solid white;
   background-color: black;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+input[type="submit"]:hover {
+  color: #000;
+  font-weight: bold;
+  border: 1px solid white;
+  background-color: rgb(138, 146, 255);
   cursor: pointer;
   transition: all 0.3s;
 }

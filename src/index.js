@@ -18,7 +18,7 @@ const loadRamenImages = (ramen) => {
   const ramenImg = document.createElement('img')
   ramenImg.src = ramen.image
   ramenImg.alt = ramen.name
-  ramenImg.id = ramen.id
+  ramenImg.id = `ramen-${ramen.id}`
   ramenMenuDiv.appendChild(ramenImg)
   ramenImg.addEventListener('click', () => handleClick(ramen))
 }
@@ -79,9 +79,9 @@ const addSubmitListener = () => {
       }
     })
       .then(response => response.json())
-      .then((ramen) => {
+      .then(() => {
         // loadRamenImages(ramen)
-        // ramenMenuDiv.removeChild('img.getElementById(ramenSelected)')
+        document.getElementById(`ramen-${ramenSelected}`).remove()
         console.log("Ramen " + ramenSelected + " was deleted")
       })
       .catch((error) => console.log(error)) 
@@ -111,6 +111,7 @@ const addSubmitListener = () => {
         console.log("Ramen " + ramenSelected + " was patched")
       })
       .catch((error) => console.log(error))
+
     document.getElementById('rating-display').textContent = document.getElementById('patch-rating').value
     document.getElementById('comment-display').textContent = document.getElementById('patch-comment').value
     patchRamenForm.reset()
