@@ -31,7 +31,7 @@ const handleClick = (ramen) => {
   document.getElementById('rating-display').textContent = ramen.rating
   document.getElementById('comment-display').textContent = ramen.comment
   ramenSelected = ramen.id
-  console.log("Ramen " + ramenSelected + " was clicked")
+  // console.log("Ramen " + ramenSelected + " was clicked")
 }
 
 // handleSubmit(), handleDelete(), and handlePatch()
@@ -86,7 +86,7 @@ const addSubmitListener = () => {
         document.getElementById('detail-restaurant').textContent = "Tester's Ramen"
         document.getElementById('rating-display').textContent = 0
         document.getElementById('comment-display').textContent = "Your ramen was DELETEd."
-        console.log("Ramen " + ramenSelected + " was deleted")
+        // console.log("Ramen " + ramenSelected + " was deleted")
       })
       .catch((error) => console.log(error)) 
   }
