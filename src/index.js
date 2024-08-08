@@ -80,8 +80,12 @@ const addSubmitListener = () => {
     })
       .then(response => response.json())
       .then(() => {
-        // loadRamenImages(ramen)
         document.getElementById(`ramen-${ramenSelected}`).remove()
+        document.getElementById('detail-image').src = "./assets/ramen/shoyu.jpg"
+        document.getElementById('detail-name').textContent = "Tester McTester"
+        document.getElementById('detail-restaurant').textContent = "Tester's Ramen"
+        document.getElementById('rating-display').textContent = 0
+        document.getElementById('comment-display').textContent = "Your ramen was DELETEd."
         console.log("Ramen " + ramenSelected + " was deleted")
       })
       .catch((error) => console.log(error)) 
